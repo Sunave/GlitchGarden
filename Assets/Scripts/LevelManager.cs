@@ -2,12 +2,11 @@
 using System.Collections;
 
 public class LevelManager : MonoBehaviour {
-
-	public bool autoLoadNextLevel;
+	
 	public float autoLoadNextLevelAfter;
 
 	void Start () {
-		if (autoLoadNextLevel) {
+		if (autoLoadNextLevelAfter > 0) {
 			Invoke ("LoadNextLevel", autoLoadNextLevelAfter);
 		}
 	}
