@@ -6,7 +6,7 @@ public class MusicManager : MonoBehaviour {
 	public AudioClip[] levelMusicChangeArray;
 
 	private AudioSource audioSource;
-	
+
 	void Awake () {
 		DontDestroyOnLoad (gameObject);
 	}
@@ -16,10 +16,7 @@ public class MusicManager : MonoBehaviour {
 	}
 
 	void Update () {
-//		int currentLevel = Application.loadedLevel;
-//		if (levelMusicChangeArray[currentLevel]) {
-//			AudioSource.PlayClipAtPoint(levelMusicChangeArray[currentLevel], transform.position, 0.2f);
-//		}
+
 	}
 
 	void OnLevelWasLoaded (int level) {
@@ -29,5 +26,9 @@ public class MusicManager : MonoBehaviour {
 			audioSource.loop = true;
 			audioSource.Play();
 		}
+	}
+
+	public void SetVolume (float volume) {
+		audioSource.volume = volume;
 	}
 }
