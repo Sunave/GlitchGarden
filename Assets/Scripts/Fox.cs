@@ -28,9 +28,9 @@ public class Fox : MonoBehaviour {
 		}
 
 		if (colliderObject.GetComponent<Stone>()) {
-			animator.SetTrigger ("Jump Trigger");
+			animator.SetTrigger ("jumpTrigger");
 		} else {
-			animator.SetBool ("IsAttacking", true);
+			animator.SetBool ("isAttacking", true);
 			attacker.Attack (colliderObject);
 		}
 
