@@ -5,8 +5,8 @@ using System.Collections;
 [RequireComponent (typeof(Text))]
 public class StarDisplay : MonoBehaviour {
 
-	private static Text starText;
-	private static int totalStars = 100;
+	private Text starText;
+	private int totalStars = 100;
 	public enum Status {SUCCESS, FAILURE};
 
 	void Start () {
@@ -30,5 +30,9 @@ public class StarDisplay : MonoBehaviour {
 
 	private void UpdateView () {
 		starText.text = totalStars.ToString();
+	}
+
+	public void ResetStars () {
+		totalStars = 0;
 	}
 }
