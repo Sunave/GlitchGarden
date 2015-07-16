@@ -5,6 +5,9 @@ using System.Collections;
 [RequireComponent (typeof (Health))]
 public class Attacker : MonoBehaviour {
 
+	[Tooltip ("Average number of seconds between appearances")]
+	public float seenEverySeconds;
+
 	private float currentSpeed;
 	private GameObject currentTarget;
 	private Animator animator;
@@ -42,5 +45,5 @@ public class Attacker : MonoBehaviour {
 	public void Attack (GameObject target) {
 		currentTarget = target;
 	}
-	
+
 }
