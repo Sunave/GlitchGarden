@@ -8,17 +8,15 @@ public class Shooter : MonoBehaviour {
 	private GameObject gun;
 	
 	void Start () {
+
+		// Find a Gun child
 		if (gameObject.transform.Find("Gun")) {
 			gun = gameObject.transform.Find("Gun").gameObject;
-		} else { 
-			Debug.LogError ("You need to create a child named 'Gun' for " + name);
-		}
+		} else Debug.LogError ("You need to create a child named 'Gun' for " + name);
 
+		// Find a parent to put projectiles into, or create one
 		projectileParent = GameObject.Find("Projectiles");
-	}
-
-	void Update () {
-		
+		if (!projectileParent) projectileParent = new GameObject("Projectiles");
 	}
 
 	private void FireGun() {
