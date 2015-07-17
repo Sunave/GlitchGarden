@@ -6,13 +6,15 @@ public class OptionsController : MonoBehaviour {
 
 	public Slider volumeSlider;
 	public Slider difficultySlider;
-	public LevelManager levelManager;
 
+	private LevelManager levelManager;
 	private MusicManager musicManager;
 
 	// Use this for initialization
 	void Start () {
 		musicManager = GameObject.FindObjectOfType<MusicManager>();
+		levelManager = GameObject.FindObjectOfType<LevelManager>();
+
 		volumeSlider.value = PlayerPrefsManager.GetMasterVolume();
 		difficultySlider.value = PlayerPrefsManager.GetDifficulty();
 	}
