@@ -25,12 +25,13 @@ public class GameTimer : MonoBehaviour {
 	void Update () {
 		slider.value = 1 - (Time.timeSinceLevelLoad / levelPlayTimeSeconds);
 		if (Time.timeSinceLevelLoad >= levelPlayTimeSeconds && !endOfLevel) {
-			endOfLevel = true;
 			LevelSuccess();
 		}
 	}
 
 	void LevelSuccess() {
+		DestroyAllTaggedObjects();
+		endOfLevel = true;
 		audioSource.Play();
 		winLabel.SetActive(true);
 		Invoke ("LoadNextLevel", audioSource.clip.length);
@@ -38,5 +39,12 @@ public class GameTimer : MonoBehaviour {
 
 	void LoadNextLevel () {
 		levelManager.LoadNextLevel();
+	}
+
+	void DestroyAllTaggedObjects () {
+		GameObject[] destroyables = GameObject.FindGameObjectsWithTag("destroyOnWin");
+		foreach (GameObject destroyable in destroyables) {
+			Destroy (destroyable);
+		}
 	}
 }
