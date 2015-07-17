@@ -4,7 +4,7 @@ using System.Collections;
 
 public class GameTimer : MonoBehaviour {
 
-	public float levelPlayTimeSeconds = 30f;
+	public float levelPlayTimeSeconds = 100f;
 
 	private Slider slider;
 	private AudioSource audioSource;
